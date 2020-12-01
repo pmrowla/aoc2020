@@ -1,5 +1,5 @@
 # aoc2020
-My Advent of Code 2019 solutions
+My Advent of Code 2010 solutions
 
 Should work in Python 3.7+, but only tested in 3.9.
 

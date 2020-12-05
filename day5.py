@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """Advent of Code 2020 day 5 module."""
 
-import itertools
-
 
 def parse_seat(s):
     row = 0

@@ -38,9 +38,14 @@ def process(puzzle_input, verbose=False):
 
     cpu.run(prog)
     p1 = cpu.acc
+
+    swap = {
+        "jmp": "nop",
+        "nop": "jmp",
+    }
     for i, (opcode, val) in enumerate(prog):
-        if opcode == "jmp":
-            p2 = cpu.run(prog[:i] + [("nop", val)] + prog[i + 1:])
+        if opcode in swap:
+            p2 = cpu.run(prog[:i] + [(swap[opcode], val)] + prog[i + 1:])
             if p2 is not None:
                 break
 

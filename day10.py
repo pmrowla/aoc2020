@@ -21,7 +21,12 @@ def process(puzzle_input, verbose=False):
             run_len += 1
         else:
             if run_len > 0:
-                comb = sum((math.comb(run_len - 1, x) for x in range(max(run_len - 3, 0), run_len + 1)))
+                comb = sum(
+                    (
+                        math.comb(run_len - 1, x)
+                        for x in range(max(run_len - 3, 0), run_len + 1)
+                    )
+                )
                 combinations.append(comb)
             run_len = 0
     p1 = counts[1] * counts[3]

@@ -29,7 +29,9 @@ def step(grid, dimensions, mins, maxes):
         range(mins[d] - 1, maxes[d] + 2, 1)
         for d in range(dimensions)
     ]
-    positions = itertools.product(*dim_ranges)
+    positions = list(itertools.product(*dim_ranges))
+    if HAS_TQDM:
+        positions = tqdm(positions, desc="Check neighbors", leave=False)
     for pos in positions:
         active_neighbors = sum(grid[neighbor] for neighbor in adj(pos, dimensions))
         if grid[pos]:
